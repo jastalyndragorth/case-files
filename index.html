@@ -98,8 +98,20 @@ footer{text-align:center;color:#8f7957;padding:18px;font-size:.8rem}
 <footer>Unofficial fan-made field investigation game • Case material is original.</footer>
 <script>
 const secret="==Qfi4CbhRnblRWaj5WavNGI5xGdyFGcgQmbhBCduVGdzl2cu92YulGIzlGIlNmblRWa2VGIn5Wa05WdhhGIlhGdgUGbph2dgwCZhVmcoRHIu9Wbt92YgUGa0BSZyFGIzV2Yp9mdgUGa0BCdhhGdgcmbpNWa09mbgMXZylWdxVmcg42bpRXYjlmZpRnblRWagQ3YlJncvNkIgojIl12bjRXdvJCIs0lIukncvR3cgQ3cvh2ZgcmbpNmbpZnbvNGIhBCZlRWa29mcwBSe0JXZw9mcwBSZoRHIoRXa3BCZlRXYpN2bzNXYggGdhVGZgwWYj9GbgEkIgwiIukHdpZXa0NWYgQXaylGczBychBCZlRXZyBnclRnbpBSZiBCZsV3bjBSZtFmcmJ3bvRGIhBibvByclh2Y0FmcjNlIgwiIucmbpRnb1FGagEGIkVGdzV2ZnV3cgI3bpJXZ05WagQGbvNGIk5WYgU2c19GagQWZu9GZuFmYhBSZoRlIbBiOiM3ZulmcyVGafRWZyJCIs0lIu4WYnVmYgcmbpRnb1FGagQWZnVGbsFGI05WZyJXdjBSZoRHIlJ3bmVmYgU2Yp9mdgM3Jl52bgQWZ29GbgEGIn5WayFWZoBCZlJWayN2clRGI0J3bwVmcgM3cl5GdpdHI0NXZkx2bgUGaUJCIsIiLn5Wa5F2cgIXZ2VGIkVWauVGZgIXZrFWZwNHIkV2cvBHc1NHIlhGdgQXYoRHIlNXYyhGcgEGIkV2c1BSZjl2b2BCZlRmcvNWZyBSQiACLi4ibyVGd0FGcgQXaylGczBCbh52bpRnblZnbvNGIhBCa0l2dgQnblR3cpNnbvNmbpBSZyV2dgMXZj5WYiJXd0NXakBCbhNWazlHawBSZoRlIgwiIu0WZoRHIuVGdodWayZGI5xGctl2cg4WYoRHIyVGa0FmcgMnbvlGdhN2bsBCZlRXYs92cpBCZyF2dvRHIzV2czVmb0l2dgUmdv1GIvRHIkVWayRHI5xGZlRXYlBXZyByclNWavZHIlhGViACLi4CduV2clJHcg4WZlJGIlZXYoBCdv5GIkxWdvNGIvh2dgUGbw9WZwByb0ByZul2Zu9GblJGIzV2Yp9mdgQmchVGagMnclxGbhNGIlhGVisFI6Iycu9Wa0FmbhxGc4V2XlVHbjJCIsIiL5RXZmF2cg02byZGI5F2dhByctlGdjlmdgcXYyRGIvRHI5RnclB3byBHIsFmc1JHIkVmbvRmbhJWYg4WYgQmb19mchByclNmbhJmc1R3cpRGIkV2ZhR3cgQmbhByclNWavZHIyFWaslWbhZGIkV2c1BicvRXYkVmcwByZul2ajlWbp1WLlNWavZHIBBiLlJXdsBSYgMXY3ByZulGduVXYoBCduVmchBHchBSZoRlIgojI5JXYt1WdzJCIsISQUR1TD9kUDJCI6IibvlGdhNWaml2czFGbjJye";
-function openCase(){archive.style.display="none";case.classList.add("active");scrollTo(0,0)}
-function closeCase(){case.classList.remove("active");archive.style.display="block";scrollTo(0,0)}
+function openCase(){
+  const archiveEl = document.getElementById("archive");
+  const caseEl = document.getElementById("case");
+  archiveEl.style.display = "none";
+  caseEl.classList.add("active");
+  window.scrollTo(0,0);
+}
+function closeCase(){
+  const archiveEl = document.getElementById("archive");
+  const caseEl = document.getElementById("case");
+  caseEl.classList.remove("active");
+  archiveEl.style.display = "block";
+  window.scrollTo(0,0);
+}
 document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.getElementById(b.dataset.page).classList.add("active")});
 function firstWarning(){
  if(!confirm("FINAL WARNING\n\nOpening this file will reveal the nature of the threat and end the investigation.\n\nHave both hunters submitted their final theories?")) return;
