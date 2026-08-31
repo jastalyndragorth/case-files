@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case 002 — The Last Guest</title>
+<style>
+:root{
+  --bg:#0b0908; --paper:#e8dcc0; --paper2:#d7c7a4; --ink:#241b16;
+  --gold:#c9a56b; --burg:#5e201c; --muted:#a8926c; --line:#6f5d42;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:radial-gradient(circle at top,#18120e 0,#0b0908 55%);color:#ead9b8;font-family:Georgia,"Times New Roman",serif;min-height:100vh}
+.bunker-nav{width:100%;display:flex;justify-content:center;align-items:center;padding:10px 12px;background:#0b0908;border-bottom:1px solid rgba(201,165,107,.35)}
+.bunker-back{border:1px solid rgba(201,165,107,.75);border-radius:7px;padding:10px 14px;background:#21150f;color:#e2c58f;font:700 clamp(.72rem,2.8vw,.9rem) Georgia,"Times New Roman",serif;letter-spacing:.05em;text-transform:uppercase;text-decoration:none}
+.shell{width:min(100%,980px);margin:0 auto;padding:18px 12px 60px}
+.archive-head{text-align:center;border:1px solid rgba(201,165,107,.45);background:#15100d;padding:22px 14px;margin-bottom:14px}
+.kicker{font:700 .78rem "Courier New",monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+h1{font-size:clamp(2rem,8vw,4rem);margin:.25rem 0;color:#f0dfbc;letter-spacing:.03em}
+.subtitle{font-style:italic;color:#cbb990;margin:.2rem 0}
+.status{display:inline-block;margin-top:12px;border:1px solid #765c38;padding:5px 10px;font:700 .75rem "Courier New",monospace;color:#d8bd88}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:12px 0}
+.tab{padding:10px 7px;border:1px solid #6b5437;background:#1b1410;color:#dec89e;font:700 .74rem "Courier New",monospace;text-transform:uppercase;cursor:pointer;border-radius:5px}
+.tab.active{background:#5a211d;border-color:#a06650;color:#fff1d0}
+.panel{display:none;background:linear-gradient(#eee1c6,#dcc9a2);color:var(--ink);border:1px solid #7c684b;box-shadow:0 8px 28px #0008;padding:clamp(18px,4vw,34px);min-height:410px}
+.panel.active{display:block}
+.panel h2{margin:0 0 4px;font-size:clamp(1.5rem,5vw,2.2rem)}
+.fileline{font:700 .75rem "Courier New",monospace;letter-spacing:.08em;color:#5b4731;border-bottom:1px solid #8d7959;padding-bottom:10px;margin-bottom:18px}
+.card{border:1px solid #9b8968;background:#f1e6ce;padding:16px;margin:14px 0}
+.card h3{margin:0 0 8px;font-size:1.05rem;text-transform:uppercase;letter-spacing:.05em}
+.note{border-left:4px solid var(--burg);padding:9px 12px;margin:12px 0;background:#e5d5b6}
+.evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.badge{font:700 .7rem "Courier New",monospace;color:#694130}
+.toolrow{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}
+.tool{color:#f0d6a5;background:#21150f;border:1px solid #8a6d45;padding:9px 11px;text-decoration:none;border-radius:5px;font:700 .75rem "Courier New",monospace}
+textarea,input{width:100%;border:1px solid #8d7959;background:#f7ecd4;color:#241b16;padding:10px;font:1rem Georgia,serif}
+textarea{min-height:90px;resize:vertical}
+.reportlabel{font:700 .75rem "Courier New",monospace;display:block;margin:13px 0 5px;text-transform:uppercase}
+.action{border:1px solid #6d422f;background:#5e201c;color:#fff0d4;padding:11px 15px;border-radius:5px;font:700 .82rem "Courier New",monospace;text-transform:uppercase;cursor:pointer}
+.action.secondary{background:#2a2119;border-color:#7c684b}
+.saved{font:700 .78rem "Courier New",monospace;color:#365d3a;margin-left:9px}
+.lockbox{text-align:center;border:2px dashed #755d40;padding:26px;background:#e1cfaa}
+.warning{font:700 1.1rem "Courier New",monospace;color:#6c1f1b}
+.reveal{display:none}
+.reveal.open{display:block}
+.stamp{display:inline-block;border:3px double #6b1c18;color:#6b1c18;padding:7px 11px;transform:rotate(-2deg);font:800 1.2rem "Courier New",monospace;margin:4px 0 18px}
+.clue-list li{margin:7px 0}
+.footer{text-align:center;color:#8f7954;margin-top:18px;font:.72rem "Courier New",monospace}
+@media(max-width:700px){.tabs{grid-template-columns:repeat(2,1fr)}.evidence-grid{grid-template-columns:1fr}.panel{padding:18px 15px}}
+@media print{.bunker-nav,.tabs,.toolrow,.action,.footer{display:none!important}body{background:#fff}.shell{width:100%;padding:0}.archive-head{color:#000;background:#fff;border-color:#000}.archive-head *{color:#000}.panel{display:block!important;box-shadow:none;border:0;page-break-after:always;background:#fff}.reveal{display:none!important}}
+</style>
+</head>
+<body>
+<nav class="bunker-nav" aria-label="Bunker navigation">
+  <a class="bunker-back" href="https://jastalyndragorth.github.io/case-files/">← Case Archive</a>
+</nav>
+
+<main class="shell">
+<header class="archive-head">
+  <div class="kicker">Men and Women of Letters • Restricted Case Archive</div>
+  <h1>THE LAST GUEST</h1>
+  <p class="subtitle">Case 002 • Field Review</p>
+  <span class="status">STATUS: ACTIVE</span>
+</header>
+
+<div class="tabs" role="tablist">
+  <button class="tab active" data-panel="briefing">Briefing</button>
+  <button class="tab" data-panel="evidence">Evidence</button>
+  <button class="tab" data-panel="witnesses">Witnesses</button>
+  <button class="tab" data-panel="locations">Locations</button>
+  <button class="tab" data-panel="documents">Documents</button>
+  <button class="tab" data-panel="leads">New Leads</button>
+  <button class="tab" data-panel="report">Final Report</button>
+  <button class="tab" data-panel="resolution">🔒 Resolution</button>
+</div>
+
+<section class="panel active" id="briefing">
+  <h2>Initial Field Briefing</h2>
+  <div class="fileline">CASE 002 • MARLOW'S REST MOTEL • PRIORITY: REVIEW</div>
+  <p>A guest checked into Room 8 of a small roadside motel on a rainy Thursday night. By morning, he was gone.</p>
+  <p>His car remained in the parking lot. His phone, wallet, jacket, and overnight bag were still inside the room. The night manager says the deadbolt was engaged when staff opened the door with an emergency key.</p>
+  <div class="note"><strong>Complication:</strong> motel records show another guest vanished from Room 8 thirty-two years earlier. That person's belongings were also left behind.</div>
+  <p><strong>Hunter Objective:</strong> determine what happened to the missing guest, identify the supernatural threat if one exists, and explain why two disappearances separated by decades appear connected to the same room.</p>
+  <div class="toolrow">
+    <a class="tool" href="https://jastalyndragorth.github.io/bestiary/" target="_blank">OPEN BESTIARY</a>
+    <a class="tool" href="https://jastalyndragorth.github.io/research-desk/" target="_blank">OPEN RESEARCH DESK</a>
+  </div>
+</section>
+
+<section class="panel" id="evidence">
+  <h2>Evidence</h2><div class="fileline">SCENE MATERIAL • ROOM 8</div>
+  <div class="evidence-grid">
+    <article class="card"><span class="badge">ITEM A</span><h3>Guest Belongings</h3><p>Wallet, phone, keys, shoes, jacket, and a packed overnight bag were found inside. Nothing obvious appears stolen.</p></article>
+    <article class="card"><span class="badge">ITEM B</span><h3>Security Footage</h3><p>At 2:13 A.M., a man matching the missing guest walks past the lobby camera toward the parking lot. The image is grainy. For two frames, his eyes reflect unusually bright.</p></article>
+    <article class="card"><span class="badge">ITEM C</span><h3>Bathroom Drain</h3><p>Housekeeping found several short strands of hair and a small amount of translucent material caught beneath the drain cover. Staff assumed it was soap residue and did not clean it after police sealed the room.</p></article>
+    <article class="card"><span class="badge">ITEM D</span><h3>Room Door</h3><p>No damage was found on the door or frame. The inside deadbolt was engaged. The bathroom window is narrow and painted shut.</p></article>
+  </div>
+</section>
+
+<section class="panel" id="witnesses">
+  <h2>Witness Statements</h2><div class="fileline">INTERVIEW EXTRACTS</div>
+  <article class="card"><h3>Mara Voss — Night Manager</h3><p>Voss checked the guest in at 9:46 P.M. She remembers him as tired but friendly. Near midnight she heard two male voices arguing in the hallway, but when she looked out, only the guest from Room 8 was visible.</p></article>
+  <article class="card"><h3>Caleb Trent — Guest, Room 10</h3><p>Trent says he saw the missing guest at approximately 1:30 A.M. near the ice machine. He was barefoot and wearing a gray T-shirt. Trent remembers thinking the man's expression looked “wrong somehow,” but cannot explain why.</p></article>
+  <article class="card"><h3>Renee Vale — Sister of Missing Guest</h3><p>Vale confirms her brother called her at 12:08 A.M. He complained that somebody at the motel had knocked twice and then stood silently outside his door. He sounded irritated, not frightened. She also notes that he never walks barefoot outside a hotel room because of an old ankle injury.</p></article>
+</section>
+
+<section class="panel" id="locations">
+  <h2>Locations</h2><div class="fileline">FIELD MAP NOTES</div>
+  <article class="card"><h3>Marlow's Rest Motel</h3><p>A two-story, twenty-room roadside motel operating since the late 1960s. Several renovations have changed the lobby and exterior, but Room 8 remains in its original location.</p></article>
+  <article class="card"><h3>Room 8</h3><p>Second floor, end of the west corridor. One door to the hallway, one small bathroom window, and no connecting door. A maintenance access space runs behind the bathroom wall but is sealed from the guest room.</p></article>
+  <article class="card"><h3>Old Service Building</h3><p>A disused laundry and boiler structure stands behind the west wing. It was closed after the motel renovation twenty-seven years ago and is now used for storage.</p></article>
+</section>
+
+<section class="panel" id="documents">
+  <h2>Documents</h2><div class="fileline">ARCHIVE EXTRACTS</div>
+  <article class="card"><h3>1984 Missing Person Notice</h3><p><strong>Daniel Mercer, age 29.</strong> Last confirmed location: Room 8, Marlow's Rest. Vehicle and personal belongings recovered at motel. A clerk reported seeing Mercer leave the west stairwell shortly after 3:00 A.M., but another witness claimed to hear Mercer speaking inside Room 8 almost twenty minutes later.</p></article>
+  <article class="card"><h3>1999 Renovation Invoice</h3><p>Workers repairing the west wing recorded “organic debris” inside the wall cavity behind Rooms 7–9. The contractor attributed it to rodents and removed only what blocked new plumbing.</p></article>
+  <article class="card"><h3>Local Folklore Column — 2007</h3><p>A newspaper Halloween feature calls Room 8 “the room that keeps its guests.” The article claims Daniel Mercer's ghost locks the door after luring travelers inside. No written version of that legend has been located before 2007.</p></article>
+</section>
+
+<section class="panel" id="leads">
+  <h2>New Leads</h2><div class="fileline">RESEARCH PRIORITIES</div>
+  <ol class="clue-list">
+    <li>Compare the 1984 witness timeline with the current security footage. In both cases, one piece of evidence places the missing guest outside while another suggests the guest remained inside.</li>
+    <li>Do not assume the Room 8 ghost story explains the first disappearance. The published legend appears more than twenty years after Daniel Mercer vanished.</li>
+    <li>Consult the Bestiary for creatures associated with <strong>identity copying, stolen memories, unusual camera-eye effects, discarded biological material, and impersonation.</strong></li>
+    <li>Ask whether the locked-room problem requires the missing guest to have left the room at all.</li>
+  </ol>
+  <div class="note"><strong>Hunter's Call:</strong> When you have a leading theory, complete the Final Case Report before opening the sealed resolution.</div>
+</section>
+
+<section class="panel" id="report">
+  <h2>Final Case Report</h2><div class="fileline">SUBMIT BEFORE BREAKING SEAL</div>
+  <label class="reportlabel" for="threat">Threat Identified</label>
+  <input id="threat" autocomplete="off">
+  <label class="reportlabel" for="theory">What happened to the guest?</label>
+  <textarea id="theory"></textarea>
+  <label class="reportlabel" for="proof">Three clues that support your conclusion</label>
+  <textarea id="proof"></textarea>
+  <label class="reportlabel" for="alternates">Which alternate theory almost fooled you?</label>
+  <textarea id="alternates"></textarea>
+  <button class="action" id="saveReport">File Report</button><span class="saved" id="savedMsg"></span>
+</section>
+
+<section class="panel" id="resolution">
+  <h2>Sealed Case Resolution</h2><div class="fileline">AUTHORIZED AFTER FINAL REPORT</div>
+  <div class="lockbox" id="seal">
+    <div class="warning">⚠ DO NOT OPEN UNTIL BOTH HUNTERS ARE READY ⚠</div>
+    <p>The following file identifies the supernatural threat and explains the evidence.</p>
+    <p>Complete your Final Case Report first.</p>
+    <button class="action" id="breakSeal">BREAK SEAL</button>
+  </div>
+
+  <div class="reveal" id="reveal">
+    <div class="stamp">THREAT IDENTIFIED</div>
+    <h2>SHAPESHIFTER</h2>
+    <p>The missing guest did not walk out of Room 8. <strong>Something wearing his face did.</strong></p>
+    <div class="card"><h3>What Happened</h3><p>A Shapeshifter using the abandoned service spaces behind the west wing entered the maintenance cavity adjoining Room 8. After copying the guest, it left the room in his appearance. The original victim was taken through the concealed service route rather than through the locked hallway door.</p></div>
+    <div class="card"><h3>Why the Evidence Fits</h3>
+      <ul class="clue-list">
+        <li><strong>Lobby footage:</strong> the person leaving looked like the guest, while the unusual eye reflection supports Shapeshifter lore.</li>
+        <li><strong>Bathroom material:</strong> hair and translucent residue are consistent with biological material left after a transformation.</li>
+        <li><strong>Barefoot sighting:</strong> the copy reproduced appearance and memory well enough to pass casually, but missed a small personal habit tied to the real guest's ankle injury.</li>
+        <li><strong>Two voices:</strong> the guest and his duplicate were both present before the disappearance.</li>
+        <li><strong>1984 contradiction:</strong> Daniel Mercer was reportedly outside and still heard inside because the same type of impersonation occurred then.</li>
+        <li><strong>2007 ghost legend:</strong> it is a later explanation attached to an older mystery, making it a persuasive red herring rather than the cause.</li>
+      </ul>
+    </div>
+    <div class="card"><h3>Weakness</h3><p>Silver is the defining supernatural weakness of an ordinary Shapeshifter. The binder records the canon rule without practical weapon-use guidance.</p></div>
+    <div class="card"><h3>Required Field Equipment</h3><p>Identification tools, silver from the standard fictional Field Kit, and a way to distinguish the real person from an imitation.</p></div>
+    <div class="card"><h3>Optional / Useful Equipment</h3><p>Camera footage, UV/black light for scene review, evidence bags, and the Hunter Lore Notebook.</p></div>
+    <div class="card"><h3>Special Artifact Required</h3><p><strong>NO.</strong></p></div>
+    <div class="note"><strong>HUNTERS: PREPARE FOR THE HUNT.</strong><br>The creature knows the motel, can wear a familiar face, and has had access to the old service passages for decades. Do not treat appearance alone as proof of identity.</div>
+  </div>
+</section>
+
+<div class="footer">Unofficial fan-made field investigation game • Case material is original.</div>
+</main>
+
+<script>
+const tabs=[...document.querySelectorAll('.tab')], panels=[...document.querySelectorAll('.panel')];
+function show(id){
+  tabs.forEach(t=>t.classList.toggle('active',t.dataset.panel===id));
+  panels.forEach(p=>p.classList.toggle('active',p.id===id));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+tabs.forEach(t=>t.addEventListener('click',()=>show(t.dataset.panel)));
+
+const fields=['threat','theory','proof','alternates'];
+fields.forEach(id=>{
+  const el=document.getElementById(id);
+  el.value=localStorage.getItem('case002_'+id)||'';
+});
+document.getElementById('saveReport').addEventListener('click',()=>{
+  fields.forEach(id=>localStorage.setItem('case002_'+id,document.getElementById(id).value));
+  const msg=document.getElementById('savedMsg'); msg.textContent='REPORT FILED';
+  setTimeout(()=>msg.textContent='',2200);
+});
+document.getElementById('breakSeal').addEventListener('click',()=>{
+  if(!confirm('Both hunters ready? This reveals the solution to Case 002.')) return;
+  document.getElementById('seal').style.display='none';
+  document.getElementById('reveal').classList.add('open');
+});
+</script>
+</body>
+</html>
