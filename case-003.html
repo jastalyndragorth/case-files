@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Case 003 — The Borrowed Hour</title>
+<style>
+:root{--ink:#1e160f;--paper:#e4d3ad;--red:#6f201c;--gold:#a7844e;--dark:#0b0806}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Georgia,"Times New Roman",serif}
+body{background:radial-gradient(circle at 50% 0,#352418,#130d09 48%,#070504);color:#ead7ad}
+.bunker-nav{width:100%;display:flex;justify-content:center;padding:10px 12px;background:#090705;border-bottom:1px solid #765735}
+.back{border:1px solid #80603c;border-radius:7px;padding:10px 14px;background:#21150f;color:#ead7ad;text-decoration:none;font-weight:bold;text-transform:uppercase;font-size:.82rem;letter-spacing:.05em}
+.wrap{max-width:1000px;margin:auto;padding:18px 12px 55px}
+.head{text-align:center;padding:24px 10px;border:1px solid #765735;background:#120d09;margin-bottom:12px}
+.head small{letter-spacing:.18em;color:#b89a67;text-transform:uppercase;font:bold .75rem "Courier New",monospace}
+.head h1{font-size:clamp(2.2rem,8vw,4.5rem);margin:.15em 0;text-transform:uppercase}
+.head p{color:#c9ae7d;font-style:italic}.stamp{display:inline-block;border:3px double #8d463c;color:#c68a79;padding:5px 9px;font:bold .75rem "Courier New",monospace;text-transform:uppercase;transform:rotate(-2deg)}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:12px 0}
+.tab{font:bold .72rem "Courier New",monospace;padding:10px 6px;background:#2a1810;color:#efd9ad;border:1px solid #8f6b3f;cursor:pointer;text-transform:uppercase;border-radius:4px}
+.tab.active{background:#6f201c;color:#fff1d0}
+.page{display:none;background:linear-gradient(90deg,#d2bd92,#eee0bf 5%,#eee0bf 95%,#c5aa7b);color:var(--ink);border:1px solid #8f7651;padding:clamp(18px,4vw,34px);min-height:440px;box-shadow:0 16px 40px #0008}
+.page.active{display:block}.page h2{font-size:clamp(1.6rem,5vw,2.4rem);margin:0 0 4px}
+.fileline{font:bold .75rem "Courier New",monospace;border-bottom:1px solid #8d7959;padding-bottom:10px;margin-bottom:18px;color:#5b4731}
+.doc{background:#f1e5c8;border:1px solid #9a805b;padding:17px;margin:14px 0;box-shadow:2px 4px 10px #5b442833}
+.doc h3{margin:0 0 8px;text-transform:uppercase;letter-spacing:.05em;font-size:1rem}
+.clue{border-left:4px solid #795d38;padding:9px 12px;margin:14px 0;background:#e4d1aa}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.tool{background:#21150f;color:#efd9ad;border:1px solid #8f6b3f;padding:9px 11px;text-decoration:none;font:bold .75rem "Courier New",monospace;border-radius:4px}
+label{display:block;font:bold .75rem "Courier New",monospace;text-transform:uppercase;margin:13px 0 5px}
+input,textarea{width:100%;padding:10px;border:1px solid #8d7959;background:#f8edd3;font:1rem Georgia,serif}textarea{min-height:90px}
+.action{margin-top:12px;background:#651e19;color:#f2d8bd;border:1px solid #8d463c;padding:11px 15px;font:bold .8rem "Courier New",monospace;cursor:pointer;text-transform:uppercase}
+.saved{font:bold .75rem "Courier New",monospace;color:#365d3a;margin-left:8px}
+.seal{text-align:center;border:2px dashed #765735;padding:28px;background:#e5d4af}.warning{font:bold 1rem "Courier New",monospace;color:#6f201c}
+#solution{display:none}#solution.show{display:block}
+footer{text-align:center;color:#8f7957;padding:18px;font-size:.75rem}
+@media(max-width:700px){.tabs{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}}
+</style></head>
+<body>
+<nav class="bunker-nav"><a class="back" href="https://jastalyndragorth.github.io/case-files/">← Case Archive</a></nav>
+<main class="wrap">
+<header class="head"><small>Men and Women of Letters • Restricted Case Archive</small><h1>The Borrowed Hour</h1><p>Case 003 • Field Review</p><span class="stamp">Status: Active</span></header>
+<nav class="tabs">
+<button class="tab active" data-page="briefing">Briefing</button><button class="tab" data-page="evidence">Evidence</button><button class="tab" data-page="witnesses">Witnesses</button><button class="tab" data-page="locations">Locations</button><button class="tab" data-page="documents">Documents</button><button class="tab" data-page="leads">New Leads</button><button class="tab" data-page="report">Final Report</button><button class="tab" data-page="resolution">🔒 Resolution</button>
+</nav>
+
+<section class="page active" id="briefing"><h2>Initial Field Briefing</h2><div class="fileline">CASE 003 • BELLWEATHER CLOCK & REPAIR • PRIORITY: REVIEW</div>
+<p>Three people have reported losing approximately one hour after entering the same block of an aging downtown shopping district. None remembers being unconscious. All three insist they were somewhere else during the missing time.</p>
+<p>The newest victim, Eli Mercer, was found sitting behind a locked clock-repair shop at 2:18 A.M. He had been reported missing less than ninety minutes earlier.</p>
+<div class="clue"><b>Complication:</b> Eli insists he was gone for nearly eleven years.</div>
+<p>According to Eli, he married, moved west, raised a daughter, and watched her start school. He can describe the house, his job, neighbors, birthdays, arguments, and hundreds of ordinary details. No evidence that any of it happened exists.</p>
+<div class="clue"><b>Hunter Objective:</b> Determine what happened during the missing hour, identify the threat, and explain why the victims remember lives they never lived.</div>
+<div class="tools"><a class="tool" target="_blank" href="https://jastalyndragorth.github.io/bestiary/">OPEN BESTIARY</a><a class="tool" target="_blank" href="https://jastalyndragorth.github.io/research-desk/">OPEN RESEARCH DESK</a></div></section>
+
+<section class="page" id="evidence"><h2>Evidence</h2><div class="fileline">RECOVERED MATERIAL • BELLWEATHER BLOCK</div><div class="grid">
+<div class="doc"><h3>Item A — Security Video</h3><p>At 1:21 A.M., Eli enters the alley beside Bellweather Clock & Repair. At 2:17 A.M., he appears again near the rear door and collapses. The camera records continuously. No missing hour exists on the footage.</p></div>
+<div class="doc"><h3>Item B — Wrist Marks</h3><p>Paramedics documented faint paired marks on Eli's forearm and unusual weakness inconsistent with his short walk through the alley. He does not remember being injured.</p></div>
+<div class="doc"><h3>Item C — Stopped Watch</h3><p>Eli's analog watch stopped at 1:17. A previous survivor's watch also stopped during her incident, but at 11:42 P.M.</p></div>
+<div class="doc"><h3>Item D — Blue Residue</h3><p>A thin blue-green residue was found on the rear service-door frame and again on a pipe leading toward the building's lower level. Police photographs classify it as old paint.</p></div>
+</div></section>
+
+<section class="page" id="witnesses"><h2>Witness Statements</h2><div class="fileline">INTERVIEW EXTRACTS</div>
+<div class="doc"><h3>Eli Mercer — Survivor</h3><p>“I know you think it was a dream. Dreams don't give you eleven years of mornings. My daughter's name was June. She hated peas. She had a scar on her chin from falling off her bike. I remember carrying her into the house.”</p><p>When shown current photographs, Eli recognizes everyone but becomes distressed that none have aged.</p></div>
+<div class="doc"><h3>Mara Keene — First Reported Survivor</h3><p>Six weeks ago, Mara was found asleep in her parked car two blocks away. She remembers spending “months” reconciled with her estranged sister. She initially blamed exhaustion and did not report the experience until hearing about Eli.</p></div>
+<div class="doc"><h3>Officer Dana Holt</h3><p>Holt found Eli. She says he repeatedly asked what year it was and begged her to call a wife whose name does not appear in any public record. Holt also noticed that every digital clock visible through the shop window displayed 1:17, although her patrol-car clock read 2:20.</p></div></section>
+
+<section class="page" id="locations"><h2>Locations</h2><div class="fileline">FIELD MAP NOTES</div>
+<div class="doc"><h3>Bellweather Clock & Repair</h3><p>Closed for nine years after owner Arthur Bellweather died. The front showroom remains packed with clocks. The building has no active utility account, though neighbors report brief electrical flickers at night.</p></div>
+<div class="doc"><h3>Rear Alley</h3><p>Shared by four businesses. Eli entered from the south. The camera covering the alley belongs to a pharmacy and has no direct connection to the clock shop.</p></div>
+<div class="doc"><h3>Lower Workroom</h3><p>Original building plans show a basement repair room accessible by an interior stair and an old freight hatch. The current property manager says the hatch was permanently sealed during renovation. No recent inspection of the lower room is on file.</p></div></section>
+
+<section class="page" id="documents"><h2>Archive Documents</h2><div class="fileline">RESEARCH EXTRACTS</div>
+<div class="doc"><h3>1978 Newspaper Obituary</h3><p>Arthur Bellweather's wife, Evelyn, died after a long illness. A later local story claims Arthur stopped every clock in the shop at the moment of her death. Contemporary photographs show the business open normally the following morning.</p></div>
+<div class="doc"><h3>2017 Property Inspection</h3><p>An inspector noted a recurring electrical fault that caused several digital displays to reset after brief power interruptions. The repair was deferred because the shop was already scheduled to close.</p></div>
+<div class="doc"><h3>Undated Maintenance Photograph</h3><p>A photograph taken inside the lower workroom shows a cot, bottled water, old restraints attached to a pipe, and discarded medical supplies. The image predates Eli's disappearance but was never included in the public property listing.</p></div></section>
+
+<section class="page" id="leads"><h2>New Leads</h2><div class="fileline">RESEARCH PRIORITIES</div>
+<p><b>1.</b> Establish whether time actually stopped. The security camera, patrol-car clock, and outside witnesses all experienced an ordinary hour.</p>
+<p><b>2.</b> Separate the clock-shop legend from the current incidents. Arthur Bellweather's story may explain the location's reputation without explaining the victims.</p>
+<p><b>3.</b> Consult the Bestiary for creatures associated with <b>altered perception, convincing alternate realities, incapacitated victims, feeding behavior, and waking confusion.</b></p>
+<p><b>4.</b> Ask why a supernatural phenomenon that appears psychological leaves physical evidence on its victims.</p>
+<div class="clue"><b>Hunter's Call:</b> Decide what is real, what only felt real, and what evidence exists in both versions of events. Then file your theory.</div></section>
+
+<section class="page" id="report"><h2>Final Case Report</h2><div class="fileline">SUBMIT BEFORE BREAKING SEAL</div>
+<label>Threat Identified</label><input id="threat">
+<label>What happened during the missing hour?</label><textarea id="theory"></textarea>
+<label>Three clues supporting your conclusion</label><textarea id="proof"></textarea>
+<label>What was the strongest alternate theory?</label><textarea id="alternate"></textarea>
+<button class="action" id="save">File Report</button><span class="saved" id="saved"></span></section>
+
+<section class="page" id="resolution"><h2>Sealed Case Resolution</h2><div class="fileline">AUTHORIZED AFTER FINAL REPORT</div>
+<div class="seal" id="seal"><div class="warning">⚠ DO NOT OPEN UNTIL BOTH HUNTERS ARE READY ⚠</div><p>The following archive file identifies the threat and explains the evidence.</p><button class="action" onclick="breakSeal()">BREAK SEAL</button></div>
+<div id="solution"></div></section>
+</main><footer>Unofficial fan-made field investigation game • Case material is original.</footer>
+<script>
+const secret="=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";
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.getElementById(b.dataset.page).classList.add("active");window.scrollTo({top:0,behavior:"smooth"})});
+const fields=["threat","theory","proof","alternate"];fields.forEach(id=>{const e=document.getElementById(id);e.value=localStorage.getItem("case003_"+id)||""});
+document.getElementById("save").onclick=()=>{fields.forEach(id=>localStorage.setItem("case003_"+id,document.getElementById(id).value));saved.textContent="REPORT FILED";setTimeout(()=>saved.textContent="",2200)};
+function breakSeal(){if(!confirm("FINAL WARNING\n\nHave both hunters filed their theories?"))return;if(!confirm("BREAK THE SEAL?\n\nThe solution cannot be unseen."))return;reveal()}
+function reveal(){try{const s=JSON.parse(atob(secret.split("").reverse().join("")));seal.style.display="none";solution.innerHTML=`<div class="doc"><span class="stamp">Threat Identified</span><h2>${s.classification}</h2><p>${s.summary}</p><h3>How the Evidence Fits</h3><ul>${s.clue_explanations.map(x=>`<li>${x}</li>`).join("")}</ul><h3>Red Herrings</h3><ul>${s.red_herrings.map(x=>`<li>${x}</li>`).join("")}</ul><h3>Weakness</h3><p>${s.field.weakness}</p><h3>Required Field Equipment</h3><p>${s.field.required}</p><h3>Optional / Useful Equipment</h3><p>${s.field.optional}</p><h3>Special Artifact Required</h3><p><b>${s.field.artifact}</b></p><div class="clue"><b>HUNTERS: PREPARE FOR THE HUNT.</b><br>${s.outcome}</div></div>`;solution.classList.add("show")}catch(e){solution.textContent="Archive decryption failed."}}
+</script></body></html>
